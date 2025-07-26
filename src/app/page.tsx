@@ -40,17 +40,17 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient py-20 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-center mb-6">
-              <Badge variant="secondary" className="text-sm px-4 py-2">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
+          <div className="max-w-4xl mx-auto w-full">
+            <div className="flex items-center justify-center mb-6  w-full ">
+              <Badge variant="secondary" className="text-sm px-4 py-2 border border-primary/20 rounded-full p-2 bg-primary/5">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Zero hype, 100% citations
               </Badge>
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              <span className="bg-transparent text-purple-500">
                 Connectomics
               </span>
             </h1>
@@ -178,7 +178,7 @@ export default function HomePage() {
               Whether you're a seasoned researcher or just curious about the brain, there's a place for you in our
               community.
             </p>
-            <Button asChild size="lg" className="text-lg px-8 py-4 group">
+            <Button asChild size="lg" className="text-lg px-8 py-4 group" variant={"purpurentiu"}>
               <Link href="/join">
                 Join Connectomics
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
