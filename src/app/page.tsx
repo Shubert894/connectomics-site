@@ -62,7 +62,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button asChild size="lg" className="text-lg px-8 py-4 group purpurentiu">
+              <Button asChild size="lg" className="text-lg px-8 py-4 group purpurentiu" variant= {"purpurentiu"}>
                 <Link href="/join" className="text-purple-500">
                   Join Our Discord  
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
