@@ -40,7 +40,7 @@ export default function AboutPage() {
             Our Story
           </Badge>
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-            About <span className="text-primary">Connectomics</span>
+            About <span className="text-primary text-purple-500">Connectomics</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             We're building the most rigorous and welcoming community for anyone interested in understanding the brain at

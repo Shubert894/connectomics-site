@@ -2,12 +2,12 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Brain, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { cn } from "@/lib/utils"
-
+import Image from "next/image"
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -26,7 +26,7 @@ export function Header() {
           {/* Logo - Left Third */}
           <div className="flex-1 flex justify-start">
             <Link href="/" className="flex items-center space-x-2">
-              <Brain className="h-8 w-8 text-primary" />
+              <Image src="/discord_logo.svg" alt="Connectomics Logo" width={32} height={32} />
               <span className="text-xl font-bold">Connectomics</span>
             </Link>
           </div>
