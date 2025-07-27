@@ -63,7 +63,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button asChild size="lg" className="text-lg px-8 py-4 group purpurentiu" variant= {"purpurentiu"}>
-                <Link href="/join" className="text-purple-500">
+                <Link href="https://discord.gg/bPmQt63b5Y" target="_blank" rel="noopener noreferrer" className="text-purple-500">
                   Join Our Discord  
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -120,55 +120,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Community Vibe */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                Why our community is <span className="text-primary">different</span>
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                We're not just another science Discord. We're building something special.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                  <Brain className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold">Rigorous Science</h3>
-                <p className="text-muted-foreground">
-                  Every discussion is grounded in peer-reviewed research. No speculation, just facts.
-                </p>
-              </div>
-
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                  <Users className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold">Expert Community</h3>
-                <p className="text-muted-foreground">
-                  Connect with PhD researchers, industry engineers, and passionate learners.
-                </p>
-              </div>
-
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                  <Zap className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold">Active & Welcoming</h3>
-                <p className="text-muted-foreground">
-                  Daily discussions, weekly journal clubs, and a community that actually helps.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Final CTA */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -179,7 +131,7 @@ export default function HomePage() {
               community.
             </p>
             <Button asChild size="lg" className="text-lg px-8 py-4 group" variant={"purpurentiu"}>
-              <Link href="/join">
+              <Link href="https://discord.gg/bPmQt63b5Y" target="_blank" rel="noopener noreferrer">
                 Join Connectomics
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
