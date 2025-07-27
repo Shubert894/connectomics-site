@@ -4,80 +4,94 @@ import { MessageSquare, Brain } from "lucide-react"
 const mainTopics = [
   {
     icon: "🔬",
-    title: "EM / ExM Pipelines",
-    description: "Deep dives into electron microscopy and expansion microscopy for brain mapping",
-    channels: ["#imaging-methods", "#em-protocols", "#data-processing"],
+    title: "Imaging Methods",
+    description: "Compare EM, ExM, X-ray, and more. Talk about pipelines, discuss method shortcomings, or nerd out over voxel sizes",
+    channels: ["#imaging-methods"],
     examples: [
-      "Sample prep protocols for high-resolution EM",
-      "Automated sectioning and imaging workflows",
-      "Registration algorithms for large datasets",
-      "Quality control and artifact correction",
+      "FIB-SEM vs. sSEM: pros & cons?",
+      "Automated sectioning protocols and throughput",
+      "Voxel size optimization for different tissues",
+      "Method shortcomings and workarounds",
     ],
     recentDiscussion:
-      '"Has anyone tried the new automated sectioning protocol from Janelia? The throughput looks incredible."',
-  },
-  {
-    icon: "🧠",
-    title: "Open Datasets & Analysis",
-    description: "Exploring MICrONS, FlyWire, and other cutting-edge connectome resources",
-    channels: ["#microns-data", "#flyware-analysis", "#dataset-tools"],
-    examples: [
-      "MICrONS cortical circuit reconstructions",
-      "FlyWire whole-brain connectome exploration",
-      "Allen Institute brain atlas integration",
-      "Cross-dataset comparison methods",
-    ],
-    recentDiscussion:
-      '"Found some interesting hub neurons in the FlyWire hemibrain - anyone want to collaborate on the analysis?"',
+      '"FIB-SEM vs. sSEM: pros & cons?"',
   },
   {
     icon: "💻",
-    title: "Code & Collaboration",
-    description: "Sharing implementations, reviewing papers, and building tools together",
-    channels: ["#code-sharing", "#paper-sharing", "#journal-club"],
+    title: "Computational Neuroscience",
+    description: "Simulations, neuronal dynamics, storage and processing requirements for a fly's connectome",
+    channels: ["#computational"],
     examples: [
-      "Open-source analysis pipeline development",
-      "Weekly paper discussions and reviews",
-      "Code review and optimization sessions",
-      "Tutorial creation and mentorship",
+      "Hodgkin–Huxley vs. Integrate and Fire models",
+      "Neural network simulations and dynamics",
+      "Connectome data storage solutions",
+      "Processing pipeline optimization",
     ],
     recentDiscussion:
-      '"Just pushed my connectome visualization tool to GitHub - would love feedback on the graph layout algorithms!"',
+      '"What model is better, Hodgkin–Huxley or Integrate and Fire?"',
   },
   {
-    icon: "🎯",
-    title: "Consciousness & Philosophy",
-    description: "Rigorous debates about mind uploading, consciousness, and the future of neurotechnology",
-    channels: ["#philosophy", "#mind-uploading", "#consciousness"],
+    icon: "🧬",
+    title: "Biology & Anatomy",
+    description: "Species-specific neuro-anatomy: fly, mouse, human. Chemical composition of neurons, tissue preservation, etc.",
+    channels: ["#biology"],
     examples: [
-      "Computational theories of consciousness",
-      "Ethics of mind uploading and digital consciousness",
-      "Neural correlates of subjective experience",
-      "Brain-computer interface implications",
+      "Cross-species neuroanatomical comparisons",
+      "Neuronal cytoplasm composition",
+      "Tissue preservation techniques",
+      "Synaptic structure variations",
     ],
     recentDiscussion:
-      '"Is high-fidelity structural preservation sufficient for personal identity transfer, or does dynamic activity matter more?"',
+      '"What is a neuron\'s cytoplasm made out of?"',
+  },
+  {
+    icon: "🤔",
+    title: "Philosophy & Ethics",
+    description: "Mind-uploading, consciousness, ethics. Thought experiments & 'what if…?' threads are fair game",
+    channels: ["#philosophy"],
+    examples: [
+      "Personal identity and brain replacement",
+      "Consciousness theories and debates",
+      "Ethics of mind uploading",
+      "Thought experiments on neural continuity",
+    ],
+    recentDiscussion:
+      '"Can personal identity survive a destructive replacement of the brain?"',
+  },
+  {
+    icon: "📚",
+    title: "Paper Sharing & Journal Club",
+    description: "Post papers, pre-prints, and recorded talks. Ask for explainers or give a mini-journal-club summary",
+    channels: ["#paper-sharing"],
+    examples: [
+      "Latest MICrONS research discussions",
+      "Neuronal plasticity paper presentations",
+      "Pre-print reviews and summaries",
+      "Recorded talk recommendations",
+    ],
+    recentDiscussion:
+      '"Has anyone read the new MICrONS paper? I\'d like to present a paper on neuronal plasticity I really liked."',
   },
 ]
 
 const specialChannels = [
   {
-    icon: "🎉",
+    icon: "🗣️",
     title: "Free-form Chat",
-    description: "Off-topic banter, memes, and questions that don't fit elsewhere",
-    example: '"Favorite brain-mapping podcasts? Looking for something to listen to during long imaging sessions."',
+    description: "Off-topic banter, advice, memes, and questions that don't fit in any of the other categories",
+    example: '"Favorite brain-mapping podcasts?"',
   },
   {
     icon: "📚",
     title: "Resources Hub",
-    description: "Curated papers, videos, and educational materials",
+    description: "Curated papers, videos, and educational materials with summaries",
     example: "Hand-picked articles with summaries so you can decide whether to dive deep.",
   },
   {
-    icon: "🏆",
-    title: "Member Contributions",
-    description: "Showcase your research, tools, and insights with the community",
-    example: "Ready to share your latest paper or tool? Get feedback from fellow researchers.",
+    icon: "�️",
+    title: "Member Roles",
+    description: "Claim your member badge and unlock discussion privileges",
+    example: "Hit 🧪 to unlock the Member role and start participating in discussions.",
   },
 ]
 
