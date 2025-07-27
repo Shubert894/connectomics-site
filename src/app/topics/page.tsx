@@ -175,16 +175,12 @@ export default function TopicsPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="text-center bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
+        <section className="text-center bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20 max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to dive in?</h2>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Whether you're interested in the technical details or the big philosophical questions, there's a
             conversation waiting for you.
           </p>
-          <Badge variant="secondary" className="text-sm">
-            <Brain className="w-4 h-4 mr-2" />
-            All skill levels welcome
-          </Badge>
         </section>
       </div>
     </div>
