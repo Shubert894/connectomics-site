@@ -19,22 +19,50 @@ const firebaseConfig = {
 console.log("Firebase Config:", firebaseConfig);
 console.log("Environment variables check:", {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ? 'PRESENT' : 'MISSING',
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ? 'PRESENT' : 'MISSING',
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ? 'PRESENT' : 'MISSING',
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ? 'PRESENT' : 'MISSING',
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ? 'PRESENT' : 'MISSING',
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID ? 'PRESENT' : 'MISSING',
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ? 'PRESENT' : 'MISSING',
   allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_FIREBASE'))
 });
 
-// Skip validation temporarily for debugging
-// TODO: Re-enable validation once env vars are working
+// Validate required Firebase config values
+const requiredEnvVars = [
+  'NEXT_PUBLIC_FIREBASE_API_KEY',
+  'NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN', 
+  'NEXT_PUBLIC_FIREBASE_PROJECT_ID',
+  'NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET',
+  'NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID',
+  'NEXT_PUBLIC_FIREBASE_APP_ID'
+];
+
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+if (missingVars.length > 0) {
+  console.error('❌ Missing required Firebase environment variables:', missingVars);
+  console.error('Make sure these are set in your deployment platform:');
+  missingVars.forEach(varName => console.error(`  - ${varName}`));
+}
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Log Firebase App initialization (will show on server and possibly client if re-rendered)
-console.log("Firebase App initialized:", app.name);
+let app;
+try {
+  if (missingVars.length > 0) {
+    console.error('⚠️  Skipping Firebase initialization due to missing environment variables');
+    throw new Error(`Missing Firebase environment variables: ${missingVars.join(', ')}`);
+  }
+  app = initializeApp(firebaseConfig);
+  console.log("Firebase App initialized:", app.name);
+} catch (error) {
+  console.error('❌ Failed to initialize Firebase:', error);
+  // Create a dummy app object to prevent runtime errors
+  app = null;
+}
 
 // Initialize Analytics only on client side
 let analytics: Analytics | undefined;
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && app) {
   // Log all firebaseConfig values on the client side
   console.log("Client-side Firebase config status:");
   console.log("  apiKey:", firebaseConfig.apiKey ? "PRESENT" : "MISSING");
@@ -45,13 +73,14 @@ if (typeof window !== 'undefined') {
   console.log("  appId:", firebaseConfig.appId ? "PRESENT" : "MISSING");
   console.log("  measurementId:", firebaseConfig.measurementId ? "PRESENT" : "MISSING");
 
-
   try {
     analytics = getAnalytics(app);
     console.log("Firebase Analytics initialized on client side."); // Log Analytics initialization
   } catch (e) {
     console.error("Error initializing Firebase Analytics on client side:", e); // Log any errors during Analytics initialization
   }
+} else if (typeof window !== 'undefined') {
+  console.log("Firebase Analytics not initialized - Firebase app failed to initialize.");
 } else {
   console.log("Firebase Analytics not initialized on server side."); // Indicate Analytics skipped on server
 }

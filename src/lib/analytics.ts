@@ -12,6 +12,8 @@ export const trackDiscordClick = (source: string) => {
         timestamp: new Date().toISOString()
       });
     });
+  } else {
+    console.log(`Discord click tracked (analytics not available): ${source}`);
   }
 };
 
@@ -27,6 +29,8 @@ export const trackPageView = (pageName: string) => {
         timestamp: new Date().toISOString()
       });
     });
+  } else {
+    console.log(`Page view tracked (analytics not available): ${pageName}`);
   }
 };
 
@@ -43,5 +47,7 @@ export const trackEvent = (eventName: string, parameters: Record<string, any> = 
         timestamp: new Date().toISOString()
       });
     });
+  } else {
+    console.log(`Event tracked (analytics not available): ${eventName}`, parameters);
   }
 };
