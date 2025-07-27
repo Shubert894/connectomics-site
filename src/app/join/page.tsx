@@ -85,12 +85,11 @@ export default function JoinPage() {
 
           {/* Primary CTA */}
           <div className="space-y-4">
-            <Button asChild size="lg" className="text-xl px-12 py-6 group">
+            <Button asChild size="lg" className="text-xl px-12 py-6 group bg-purple-600 hover:bg-purple-700 text-white border-0">
               <Link 
                 href="https://discord.gg/bPmQt63b5Y" 
                 target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-purple-500"
+                rel="noopener noreferrer"
                 onClick={() => trackDiscordClick('join_page_hero')}
               >
                 <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
@@ -181,7 +180,7 @@ export default function JoinPage() {
             Whether you're a seasoned researcher or just getting started, there's a place for you in our community. Come
             as you are, learn what you can, share what you know.
           </p>
-          <Button asChild size="lg" className="text-xl px-12 py-6 group text-purple-500">
+          <Button asChild size="lg" className="text-xl px-12 py-6 group bg-purple-600 hover:bg-purple-700 text-white border-0">
             <Link 
               href="https://discord.gg/bPmQt63b5Y" 
               target="_blank" 
