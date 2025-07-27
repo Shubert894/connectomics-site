@@ -1,7 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Sparkles, Users, Zap, Brain } from "lucide-react"
+import "../lib/firebase"
+import { ArrowRight, Sparkles} from "lucide-react"
+import { trackDiscordClick } from "@/lib/analytics"
 const highlights = [
   {
     icon: "🧠",
@@ -63,7 +67,13 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button asChild size="lg" className="text-lg px-8 py-4 group purpurentiu" variant= {"purpurentiu"}>
-                <Link href="https://discord.gg/bPmQt63b5Y" target="_blank" rel="noopener noreferrer" className="text-purple-500">
+                <Link 
+                  href="https://discord.gg/bPmQt63b5Y" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-purple-500"
+                  onClick={() => trackDiscordClick('homepage_hero')}
+                >
                   Join Our Discord  
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -131,7 +141,12 @@ export default function HomePage() {
               community.
             </p>
             <Button asChild size="lg" className="text-lg px-8 py-4 group" variant={"purpurentiu"}>
-              <Link href="https://discord.gg/bPmQt63b5Y" target="_blank" rel="noopener noreferrer">
+              <Link 
+                href="https://discord.gg/bPmQt63b5Y" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => trackDiscordClick('homepage_cta')}
+              >
                 Join Connectomics
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
