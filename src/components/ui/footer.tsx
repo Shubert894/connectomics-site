@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex items-center space-x-2">
            <Image src="/discord_logo.svg" alt="Connectomics Logo" width={32} height={32} />
-            <span className="text-sm text-muted-foreground">© 2025 Connectomics. All rights reserved.</span>
+            <span className="text-sm text-muted-foreground">© Connectomics Club 2025. All rights reserved.</span>
           </div>
 
           <div className="flex items-center space-x-4">
