@@ -39,7 +39,7 @@ export const trackPageView = (pageName: string) => {
  * @param eventName - The name of the event
  * @param parameters - Additional parameters for the event
  */
-export const trackEvent = (eventName: string, parameters: Record<string, any> = {}) => {
+export const trackEvent = (eventName: string, parameters: Record<string, string | number | boolean> = {}) => {
   if (analytics) {
     import('firebase/analytics').then(({ logEvent }) => {
       logEvent(analytics!, eventName, {
