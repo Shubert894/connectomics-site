@@ -17,6 +17,14 @@ const firebaseConfig = {
 };
 
 console.log("Firebase Config:", firebaseConfig);
+console.log("Environment variables check:", {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ? 'PRESENT' : 'MISSING',
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ? 'PRESENT' : 'MISSING',
+  allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_FIREBASE'))
+});
+
+// Skip validation temporarily for debugging
+// TODO: Re-enable validation once env vars are working
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
