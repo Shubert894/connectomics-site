@@ -16,17 +16,7 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-console.log("Firebase Config:", firebaseConfig);
-console.log("Environment variables check:", {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ? 'PRESENT' : 'MISSING',
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ? 'PRESENT' : 'MISSING',
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ? 'PRESENT' : 'MISSING',
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ? 'PRESENT' : 'MISSING',
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ? 'PRESENT' : 'MISSING',
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID ? 'PRESENT' : 'MISSING',
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ? 'PRESENT' : 'MISSING',
-  allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_FIREBASE'))
-});
+// Firebase configuration loaded (logging disabled for security)
 
 // Validate required Firebase config values (check actual config object instead of env vars)
 const requiredConfigFields = [
@@ -41,9 +31,10 @@ const requiredConfigFields = [
 const missingConfigFields = requiredConfigFields.filter(field => !field.value);
 if (missingConfigFields.length > 0) {
   console.error('❌ Missing required Firebase config values:', missingConfigFields.map(f => f.key));
-  console.error('Firebase config object:', firebaseConfig);
 } else {
-  console.log('✅ All required Firebase config values are present');
+  if (process.env.NODE_ENV === 'development') {
+    console.log('✅ Firebase configuration loaded successfully');
+  }
 }
 
 // Initialize Firebase
@@ -54,7 +45,9 @@ try {
     throw new Error(`Missing Firebase config values: ${missingConfigFields.map(f => f.key).join(', ')}`);
   }
   app = initializeApp(firebaseConfig);
-  console.log("✅ Firebase App initialized successfully:", app.name);
+  if (process.env.NODE_ENV === 'development') {
+    console.log("✅ Firebase App initialized successfully");
+  }
 } catch (error) {
   console.error('❌ Failed to initialize Firebase:', error);
   // Create a dummy app object to prevent runtime errors
@@ -64,37 +57,33 @@ try {
 // Initialize Analytics only on client side
 let analytics: Analytics | undefined;
 if (typeof window !== 'undefined' && app) {
-  // Log all firebaseConfig values on the client side
-  console.log("Client-side Firebase config status:");
-  console.log("  apiKey:", firebaseConfig.apiKey ? "PRESENT" : "MISSING");
-  console.log("  authDomain:", firebaseConfig.authDomain ? "PRESENT" : "MISSING");
-  console.log("  projectId:", firebaseConfig.projectId ? "PRESENT" : "MISSING");
-  console.log("  storageBucket:", firebaseConfig.storageBucket ? "PRESENT" : "MISSING");
-  console.log("  messagingSenderId:", firebaseConfig.messagingSenderId ? "PRESENT" : "MISSING");
-  console.log("  appId:", firebaseConfig.appId ? "PRESENT" : "MISSING");
-  console.log("  measurementId:", firebaseConfig.measurementId ? "PRESENT" : "MISSING");
-
   try {
     analytics = getAnalytics(app);
-    console.log("Firebase Analytics initialized on client side."); // Log Analytics initialization
+    if (process.env.NODE_ENV === 'development') {
+      console.log("✅ Firebase Analytics initialized successfully");
+    }
   } catch (e) {
-    console.error("Error initializing Firebase Analytics on client side:", e); // Log any errors during Analytics initialization
+    console.error("❌ Error initializing Firebase Analytics:", e);
   }
 } else if (typeof window !== 'undefined') {
-  console.log("Firebase Analytics not initialized - Firebase app failed to initialize.");
-} else {
-  console.log("Firebase Analytics not initialized on server side."); // Indicate Analytics skipped on server
+  if (process.env.NODE_ENV === 'development') {
+    console.log("⚠️  Firebase Analytics not initialized - Firebase app failed to initialize");
+  }
 }
 
 // Quick test function for debugging analytics
 export const testAnalytics = () => {
   if (typeof window === 'undefined') {
-    console.log('testAnalytics called on server side - skipping');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('testAnalytics called on server side - skipping');
+    }
     return;
   }
   
-  console.log('Testing Firebase Analytics...');
-  console.log('Analytics object:', analytics);
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Testing Firebase Analytics...');
+    console.log('Analytics object:', analytics);
+  }
   
   if (analytics) {
     try {
@@ -104,13 +93,17 @@ export const testAnalytics = () => {
           test: 'manual_trigger',
           timestamp: new Date().toISOString()
         });
-        console.log('✅ Test event sent successfully');
+        if (process.env.NODE_ENV === 'development') {
+          console.log('✅ Test event sent successfully');
+        }
       });
     } catch (error) {
       console.error('❌ Error sending test event:', error);
     }
   } else {
-    console.log('❌ Analytics not available - check initialization');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('❌ Analytics not available - check initialization');
+    }
   }
 };
 
