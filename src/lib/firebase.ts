@@ -28,32 +28,33 @@ console.log("Environment variables check:", {
   allEnvVars: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_FIREBASE'))
 });
 
-// Validate required Firebase config values
-const requiredEnvVars = [
-  'NEXT_PUBLIC_FIREBASE_API_KEY',
-  'NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN', 
-  'NEXT_PUBLIC_FIREBASE_PROJECT_ID',
-  'NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET',
-  'NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID',
-  'NEXT_PUBLIC_FIREBASE_APP_ID'
+// Validate required Firebase config values (check actual config object instead of env vars)
+const requiredConfigFields = [
+  { key: 'apiKey', value: firebaseConfig.apiKey },
+  { key: 'authDomain', value: firebaseConfig.authDomain },
+  { key: 'projectId', value: firebaseConfig.projectId },
+  { key: 'storageBucket', value: firebaseConfig.storageBucket },
+  { key: 'messagingSenderId', value: firebaseConfig.messagingSenderId },
+  { key: 'appId', value: firebaseConfig.appId }
 ];
 
-const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
-if (missingVars.length > 0) {
-  console.error('❌ Missing required Firebase environment variables:', missingVars);
-  console.error('Make sure these are set in your deployment platform:');
-  missingVars.forEach(varName => console.error(`  - ${varName}`));
+const missingConfigFields = requiredConfigFields.filter(field => !field.value);
+if (missingConfigFields.length > 0) {
+  console.error('❌ Missing required Firebase config values:', missingConfigFields.map(f => f.key));
+  console.error('Firebase config object:', firebaseConfig);
+} else {
+  console.log('✅ All required Firebase config values are present');
 }
 
 // Initialize Firebase
 let app;
 try {
-  if (missingVars.length > 0) {
-    console.error('⚠️  Skipping Firebase initialization due to missing environment variables');
-    throw new Error(`Missing Firebase environment variables: ${missingVars.join(', ')}`);
+  if (missingConfigFields.length > 0) {
+    console.error('⚠️  Skipping Firebase initialization due to missing config values');
+    throw new Error(`Missing Firebase config values: ${missingConfigFields.map(f => f.key).join(', ')}`);
   }
   app = initializeApp(firebaseConfig);
-  console.log("Firebase App initialized:", app.name);
+  console.log("✅ Firebase App initialized successfully:", app.name);
 } catch (error) {
   console.error('❌ Failed to initialize Firebase:', error);
   // Create a dummy app object to prevent runtime errors
