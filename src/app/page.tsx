@@ -9,27 +9,23 @@ import { trackDiscordClick } from "@/lib/analytics"
 const highlights = [
   {
     icon: "🧠",
-    title: "Deep-tech EM/ExM discussions",
+    title: "Deep EM/ExM discussions",
     description: "Dive into electron microscopy pipelines and expansion microscopy techniques",
-    example: '"Has anyone tried the new automated sectioning protocol from the latest Nature Methods paper?"',
   },
   {
     icon: "🔬",
     title: "Open dataset exploration",
     description: "Explore MICrONS, FlyWire, and other cutting-edge connectome datasets",
-    example: '"I found some interesting patterns in the FlyWire hemibrain data - anyone want to collaborate?"',
   },
   {
     icon: "💻",
     title: "Code-sharing & journal clubs",
     description: "Share implementations, review papers, and learn together",
-    example: '"Just pushed my connectome analysis pipeline to GitHub - feedback welcome!"',
   },
   {
     icon: "🎯",
     title: "Citation-backed debates",
     description: "Rigorous discussions about consciousness, mind uploading, and neural computation",
-    example: '"Is high-fidelity structural preservation sufficient for personal identity transfer?"',
   },
 ]
 
@@ -43,7 +39,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20 lg:py-32 relative overflow-hidden">
+      <section className="hero-gradient relative flex h-[calc(100vh-4rem)] items-center overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
@@ -107,32 +103,29 @@ export default function HomePage() {
       </section>
 
       {/* What We're About */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-950/80">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Welcome to the future of <span className="text-primary">brain science</span>
+              Advancing <span className="text-primary">connectomics research</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We're a community of researchers, engineers, and enthusiasts pushing the boundaries of neuroscience. From
-              electron microscopy to mind uploading debates, we dive deep into the science that matters.
+              A community of researchers, engineers, and enthusiasts exploring the frontiers of neuroscience. From
+              electron microscopy techniques to neural computation theory, we engage with rigorous, evidence-based science.
             </p>
           </div>
 
           {/* Highlights */}
-          <div className="space-y-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {highlights.map((highlight, index) => (
               <div key={index} className="group">
-                <div className="flex flex-col lg:flex-row items-start gap-6 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/20 transition-all duration-300">
-                  <div className="text-4xl lg:text-5xl flex-shrink-0">{highlight.icon}</div>
-                  <div className="flex-1 space-y-3">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                <div className="flex items-start gap-3 p-4 h-28 rounded-lg bg-gray-500/20 backdrop-blur-sm border border-white/10 hover:border-primary/20 hover:bg-gray-500/30 transition-all duration-300">
+                  <div className="text-2xl flex-shrink-0 mt-1">{highlight.icon}</div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-1">
                       {highlight.title}
                     </h3>
-                    <p className="text-muted-foreground">{highlight.description}</p>
-                    <div className="bg-muted/50 rounded-lg p-4 border-l-4 border-primary/30">
-                      <p className="text-sm italic text-muted-foreground">{highlight.example}</p>
-                    </div>
+                    <p className="text-sm text-muted-foreground line-clamp-2 leading-tight">{highlight.description}</p>
                   </div>
                 </div>
               </div>
@@ -142,7 +135,7 @@ export default function HomePage() {
       </section>
       
       {/* Final CTA */}
-      <section className="py-20">
+      <section className="py-12 bg-gray-950/80">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Ready to join the conversation?</h2>
