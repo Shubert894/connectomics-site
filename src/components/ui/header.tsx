@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 const navigation = [
@@ -49,9 +48,8 @@ export function Header() {
             </nav>
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button - Right Third */}
-          <div className="flex-1 flex justify-end items-center space-x-4">
-            <ThemeToggle />
+          {/* Mobile Menu Button - Right Third */}
+          <div className="flex-1 flex justify-end items-center">
             <Button
               variant="ghost"
               size="sm"
