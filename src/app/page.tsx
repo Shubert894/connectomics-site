@@ -48,11 +48,11 @@ export default function HomePage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
           style={{
-            backgroundImage: "url('/background_image.svg')"
+            backgroundImage: "url('/background_image.png')"
           }}
         />
         {/* Dark mode only gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b dark:from-black/20 dark:via-black/5 dark:to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b dark:from-black/70 dark:via-black/50 dark:to-black/70" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center w-full relative z-10">
           <div className="max-w-4xl mx-auto w-full">
