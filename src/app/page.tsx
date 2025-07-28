@@ -43,8 +43,18 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
+      <section className="hero-gradient py-20 lg:py-32 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
+          style={{
+            backgroundImage: "url('/background_image.svg')"
+          }}
+        />
+        {/* Dark mode only gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b dark:from-black/20 dark:via-black/5 dark:to-black/20" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center w-full relative z-10">
           <div className="max-w-4xl mx-auto w-full">
             <div className="flex items-center justify-center mb-6  w-full ">
               <Badge variant="secondary" className="text-sm px-4 py-2 border border-primary/20 rounded-full p-2 bg-primary/5">
