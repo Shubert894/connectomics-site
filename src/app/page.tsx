@@ -66,9 +66,9 @@ export default function HomePage() {
             </h1>
 
             <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Where neuroscientists, engineers, and curious minds explore
+              A vibrant community where neuroscientists, engineers, and curious minds come together to explore
               <span className="text-primary font-semibold"> synapse-level brain mapping</span> and the
-              <span className="text-primary font-semibold"> future of consciousness</span>
+              <span className="text-primary font-semibold"> science of consciousness</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -107,11 +107,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Advancing <span className="text-primary">connectomics research</span>
+              A Hub for <span className="text-primary">Rigorous Discussion</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              A community of researchers, engineers, and enthusiasts exploring the frontiers of neuroscience. From
-              electron microscopy techniques to neural computation theory, we engage with rigorous, evidence-based science.
+              We are a community dedicated to exploring the frontiers of neuroscience. From electron microscopy to neural computation, our discussions are grounded in rigorous, evidence-based science.
             </p>
           </div>
 
@@ -120,9 +119,9 @@ export default function HomePage() {
             {highlights.map((highlight, index) => (
               <div key={index} className="group">
                 <div className="flex items-start gap-3 p-4 h-28 rounded-lg bg-gray-500/20 backdrop-blur-sm border border-white/10 hover:border-primary/20 hover:bg-gray-500/30 transition-all duration-300">
-                  <div className="text-2xl flex-shrink-0 mt-1">{highlight.icon}</div>
+                  <div className="text-2xl flex-shrink-0">{highlight.icon}</div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-xl font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-1">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-1">
                       {highlight.title}
                     </h3>
                     <p className="text-sm text-muted-foreground line-clamp-2 leading-tight">{highlight.description}</p>
@@ -154,7 +153,7 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <p className="text-sm text-muted-foreground mt-4">Free forever • No spam • Real science</p>
+            <p className="text-sm text-muted-foreground mt-4">No hype. Just science.</p>
           </div>
         </div>
       </section>
