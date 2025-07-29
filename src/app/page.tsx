@@ -30,8 +30,8 @@ const highlights = [
 ]
 
 const stats = [
-  { number: "500+", label: "Active Members" },
-  { number: "50+", label: "Papers Discussed Monthly" },
+  { number: "50+", label: "Weekly Contributions" },
+  { number: "20+", label: "Papers Discussed Monthly" },
   { number: "24/7", label: "Active Discussions" },
 ]
 
