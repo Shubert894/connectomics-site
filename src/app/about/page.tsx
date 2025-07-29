@@ -5,27 +5,21 @@ const principles = [
   {
     icon: Brain,
     title: "Evidence-Based Everything",
-    description: "Every claim backed by peer-reviewed research. We cite our sources and expect you to do the same.",
+    description: "Every claim backed by research. This creates trust, accelerates learning, and keeps discussions grounded in science rather than speculation.",
     example:
-      "Instead of 'AI will solve consciousness,' we ask 'What does the latest IIT research tell us about phi complexity?'",
-  },
-  {
-    icon: Target,
-    title: "Synapse-Level Focus",
-    description: "We go deep into the technical details that matter for understanding neural computation.",
-    example: "From EM reconstruction algorithms to synaptic weight distributions in connectome data.",
+      "Instead of 'we'll crack the brain code soon,' we ask 'Which imaging techniques work best?' This leads to actual progress.",
   },
   {
     icon: Users,
     title: "Collaborative Learning",
-    description: "Share code, discuss papers, and learn from experts across neuroscience and engineering.",
-    example: "Weekly journal clubs, shared GitHub repos, and mentorship from industry professionals.",
+    description: "Share code, discuss papers, learn together. This breaks down silos, speeds up research, and creates unexpected connections.",
+    example: "Journal clubs, shared repos, mentorship—knowledge flows across disciplines and career stages.",
   },
   {
     icon: Zap,
     title: "Zero Hype Policy",
-    description: "We cut through the noise to focus on what's actually happening in brain mapping research.",
-    example: "No 'mind uploading next year' claims. Just honest discussion about current capabilities and limitations.",
+    description: "We focus on what's actually happening in research. This saves time, prevents false starts, and identifies genuinely promising directions.",
+    example: "No 'mind uploading next year' claims. Honest assessments help set realistic expectations.",
   },
 ]
 
@@ -48,76 +42,67 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Mission */}
+        {/* Origin Story */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
-              <h2 className="text-2xl font-bold mb-6 text-center">Our Mission</h2>
-              <p className="text-lg leading-relaxed text-center max-w-3xl mx-auto">
-                <strong>Connectomics</strong> exists to bridge the gap between cutting-edge neuroscience research and
-                the curious minds who want to understand it. We're a space where PhD researchers share insights with
-                undergraduate students, where industry engineers collaborate with academic labs, and where anyone with
-                genuine curiosity can learn about the most complex object in the known universe: the brain.
-              </p>
+            <div className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-600/50 shadow-xl">
+              <h2 className="text-2xl font-bold mb-6 text-center">How it all began</h2>
+              
+              {/* TL;DR */}
+              <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6 mb-6 border border-purple-400/30 shadow-lg">
+                <h3 className="font-bold text-lg text-purple-300 mb-3 flex items-center">
+                  <span className="bg-purple-500/20 rounded-full px-3 py-1 text-sm mr-3">TL;DR</span>
+                </h3>
+                <p className="text-base text-gray-200 leading-relaxed">
+                  Brain mapping researchers were scattered across platforms. We're building <span className="text-yellow-300 font-semibold">one place</span> to collaborate on the technical challenges of brain <span className="text-yellow-300 font-semibold">connectomics</span>—working toward a practical roadmap for comprehensive brain scanning and understanding consciousness.
+                </p>
+              </div>
+
+              <div className="prose prose-lg max-w-none text-muted-foreground">
+                <p className="leading-relaxed mb-4 text-justify">
+                  Like many good ideas, this one started with frustration. Researchers working on brain mapping were having important conversations everywhere except with each other—neuroscientists publishing on synaptic connectivity, engineers building better imaging tools, computer scientists developing reconstruction algorithms—all working in parallel but not together.
+                </p>
+                <p className="leading-relaxed mb-4 text-justify">
+                  A handful of people from different labs and companies found themselves asking the same questions: What resolution do we actually need for a useful connectome? Which reconstruction methods work best with noisy data? How do we validate our results? Instead of hunting through dozens of papers and conference proceedings for answers, we decided to create a space where these conversations could happen directly.
+                </p>
+                <p className="leading-relaxed text-justify">
+                  What started as a small Discord server for sharing papers and code is growing into a platform where graduate students, postdocs, industry researchers, and professors can collaborate on both fundamental questions and practical implementation details. Our mission is ambitious: to tackle the most challenging goal in science—mapping and understanding the complete neural circuitry of the brain. We discuss cutting-edge research, debate breakthrough ideas, and connect with like-minded individuals who share our vision. We're actively working toward a practical roadmap for comprehensive brain scanning, determining what data we need to capture, which algorithms will decode neural networks most effectively, how this will impact our understanding of consciousness, and establishing rigorous success criteria and validation metrics for connectome projects. We're not trying to solve consciousness tomorrow—we're building the infrastructure for the conversations that will get us there.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* What Makes Us Different */}
         <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What makes us different</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Why you'll love it here</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're not just another science Discord. Here's what sets us apart.
+              We're not just another science community. Here's what makes our corner of the internet special.
             </p>
           </div>
 
-          <div className="space-y-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {principles.map((principle, index) => (
               <div key={index} className="group">
-                <div className="flex flex-col lg:flex-row items-start gap-6 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/20 transition-all duration-300">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <principle.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="flex-1 space-y-3">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                <div className="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-600/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/40 h-full">
+                  <div className="flex flex-col items-center text-center h-full">
+                    <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <principle.icon className="w-10 h-10 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
                       {principle.title}
                     </h3>
-                    <p className="text-muted-foreground">{principle.description}</p>
-                    <div className="bg-muted/50 rounded-lg p-4 border-l-4 border-primary/30">
-                      <p className="text-sm italic text-muted-foreground">{principle.example}</p>
+                    <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                      {principle.description}
+                    </p>
+                    <div className="bg-gray-700/50 rounded-xl p-6 border border-gray-600/50 w-full h-32 flex items-center">
+                      <p className="text-sm text-gray-300 italic leading-relaxed">{principle.example}</p>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Community Stats */}
-        <section className="mb-20 bg-muted/30 rounded-2xl p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4">Our growing community</h2>
-            <p className="text-lg text-muted-foreground">Real people doing real science, together.</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">500+</div>
-              <div className="text-sm text-muted-foreground">Active Members</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">50+</div>
-              <div className="text-sm text-muted-foreground">Papers/Month</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">15+</div>
-              <div className="text-sm text-muted-foreground">Countries</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground">Discussions</div>
-            </div>
           </div>
         </section>
 
@@ -131,7 +116,7 @@ export default function AboutPage() {
               future where the mysteries of consciousness and neural computation are finally within reach.
             </p>
             <p className="text-lg font-semibold text-primary">
-              The brain is complex. The community doesn't have to be.
+              We are real people doing real science, together
             </p>
           </div>
         </section>
