@@ -3,66 +3,27 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Users, MessageCircle, BookOpen, ArrowRight, Sparkles, Heart } from "lucide-react"
+import { ArrowRight, Sparkles, Heart } from "lucide-react"
 import { trackDiscordClick } from "@/lib/analytics"
 
 const joinSteps = [
   {
     number: "1",
     title: "Click to join",
-    description: "Hit the big purple button below to get your Discord invite",
+    description: "Hit the big purple button above to get your Discord invite",
     tip: "Make sure you have Discord installed or use the web version",
   },
   {
     number: "2",
-    title: "Say hello in #introductions",
-    description: "Tell us a bit about yourself - your background, interests, what you're curious about",
-    tip: "Don't worry if you're new to neuroscience - we love teaching!",
+    title: "Read the guide",
+    description: "Check out our community guidelines and getting started resources",
+    tip: "Don't forget to claim your member badge!",
   },
   {
     number: "3",
-    title: "Explore the channels",
-    description: "Browse our different discussion areas and find what interests you most",
-    tip: "Start with #free-form if you want to ease into the community",
-  },
-  {
-    number: "4",
     title: "Jump into conversations",
     description: "Ask questions, share insights, or just lurk and learn - all are welcome",
-    tip: "Remember: no question is too basic, and every perspective adds value",
-  },
-]
-
-const communityPerks = [
-  {
-    icon: Users,
-    title: "Connect with experts",
-    description: "PhD researchers, industry engineers, and passionate learners from around the world",
-  },
-  {
-    icon: MessageCircle,
-    title: "Daily active discussions",
-    description: "From technical deep-dives to casual conversations about the latest papers",
-  },
-  {
-    icon: BookOpen,
-    title: "Learn and grow together",
-    description: "Weekly journal clubs, shared resources, and mentorship opportunities",
-  },
-]
-
-const testimonials = [
-  {
-    text: "Finally found a community that takes neuroscience seriously but isn't intimidating for newcomers.",
-    author: "PhD Student, Computational Neuroscience",
-  },
-  {
-    text: "The paper discussions here are better than most academic conferences I've attended.",
-    author: "Research Engineer, Brain-Computer Interfaces",
-  },
-  {
-    text: "Started as a curious undergrad, now I'm contributing to open-source connectome tools thanks to this community.",
-    author: "Computer Science Student",
+    tip: "Seriously, ask anything! We're all here because brains are fascinating",
   },
 ]
 
@@ -80,7 +41,7 @@ export default function JoinPage() {
             Welcome to <span className="text-primary">Connectomics</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Ready to explore the brain with fellow researchers and curious minds? We can't wait to meet you!
+            Ready to explore the brain with fellow researchers and curious minds?
           </p>
 
           {/* Primary CTA */}
@@ -100,17 +61,16 @@ export default function JoinPage() {
               </Link>
             </Button>
             <p className="text-sm text-muted-foreground">
-              <Sparkles className="w-4 h-4 inline mr-1" />
-              Free forever • No spam • Real science • Welcoming community
+              No hype. Just science.
             </p>
           </div>
         </div>
 
         {/* How to Join */}
-        <section className="mb-20">
+        <section className="mb-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Getting started is easy</h2>
-            <p className="text-lg text-muted-foreground">Four simple steps to become part of our community</p>
+            <p className="text-lg text-muted-foreground">Three simple steps to become part of our community</p>
           </div>
 
           <div className="space-y-8 max-w-3xl mx-auto">
@@ -134,63 +94,6 @@ export default function JoinPage() {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* Community Benefits */}
-        <section className="mb-20 bg-muted/30 rounded-2xl p-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What you'll get</h2>
-            <p className="text-lg text-muted-foreground">More than just another Discord server</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {communityPerks.map((perk, index) => (
-              <div key={index} className="text-center space-y-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                  <perk.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold">{perk.title}</h3>
-                <p className="text-muted-foreground">{perk.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What members say</h2>
-            <p className="text-lg text-muted-foreground">Real feedback from our community</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-card border border-border/50 rounded-2xl p-6 space-y-4">
-                <p className="text-muted-foreground italic">"{testimonial.text}"</p>
-                <div className="text-sm font-medium text-primary">— {testimonial.author}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="text-center bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
-          <h2 className="text-3xl font-bold mb-4">Your brain science journey starts here</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Whether you're a seasoned researcher or just getting started, there's a place for you in our community. Come
-            as you are, learn what you can, share what you know.
-          </p>
-          <Button asChild size="lg" className="text-xl px-12 py-6 group bg-purple-600 hover:bg-purple-700 text-white border-0">
-            <Link 
-              href="https://discord.gg/bPmQt63b5Y" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={() => trackDiscordClick('join_page_cta')}
-            >
-              Join Us on Discord
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
         </section>
       </div>
     </div>
