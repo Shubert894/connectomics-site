@@ -83,6 +83,27 @@ export default function TopicsPage() {
             ))}
           </div>
         </section>
+      </div>
+
+      {/* Question Tree Image - Full Width */}
+      <section className="mb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4">Research Roadmap</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A visual guide to the key questions and research paths in brain emulation and connectomics. 
+              Explore the interconnected challenges from data capture to computational modeling.
+            </p>
+          </div>
+        </div>
+        <img 
+          src="/diagram6.svg" 
+          alt="Question Tree" 
+          className="w-full h-auto"
+        />
+      </section>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Core Resources */}
         <section className="mb-16">
